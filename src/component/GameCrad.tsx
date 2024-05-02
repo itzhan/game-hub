@@ -8,6 +8,7 @@ import {
 import { Games } from "../hook/useGames";
 import PlatFormIcons from "./PlatFormIcons";
 import GameRating from "./GameRating";
+import getCropImgUrl from "../services/img-url";
 
 interface Props {
   game: Games;
@@ -16,7 +17,7 @@ interface Props {
 const GameCrad = ({ game }: Props) => {
   return (
     <Card borderRadius={8} overflow={"hidden"}>
-      <Img src={game.background_image}></Img>
+      <Img src={getCropImgUrl(game.background_image)}></Img>
       <CardBody>
         <Heading fontSize="2xl">{game.name}</Heading>
         <HStack justifyContent={"space-between"}>
