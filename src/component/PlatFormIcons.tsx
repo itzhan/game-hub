@@ -43,7 +43,7 @@ const PlatFormIcons = ({ platforms }: Props) => {
     <>
       <Wrap marginY={"8px"} spacing="10px">
         {platforms.map((platform) => (
-          <WrapItem>
+          <WrapItem key={platform.id}>
             <Icon as={iconMap[platform.slug]} color="gray.500" />
           </WrapItem>
         ))}

@@ -5,11 +5,16 @@ import {
   Text,
   HStack,
   SkeletonText,
+  Button,
 } from "@chakra-ui/react";
-import UseGenre from "../hook/useGenre";
+import UseGenre, { Genre } from "../hook/useGenre";
 import getCropImgUrl from "../services/img-url";
 
-const GenreList = () => {
+interface Props {
+  setSelectGenre: (genre: Genre) => void;
+}
+
+const GenreList = ({ setSelectGenre } : Props) => {
   const { data, isLoding, error } = UseGenre();
   if (error) return null;
 
@@ -25,7 +30,7 @@ const GenreList = () => {
               boxSize="32px"
               borderRadius={"8px"}
             ></Img>
-            <Text fontSize="large">{genre.name}</Text>
+            <Button onClick={() => setSelectGenre(genre)} variant='link' fontSize="large">{genre.name}</Button>
           </HStack>
         </ListItem>
       ))}
