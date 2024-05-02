@@ -1,5 +1,5 @@
 import { Platforms } from "../hook/useGames";
-import { Icon, Text, HStack } from "@chakra-ui/react";
+import { Icon, Text, HStack, Box, Wrap, WrapItem } from "@chakra-ui/react";
 import { FaWindows, FaXbox, FaApple, FaLinux, FaAndroid } from "react-icons/fa";
 import { MdPhoneIphone } from "react-icons/md";
 import { SiNintendo, SiVexxhost } from "react-icons/si";
@@ -41,11 +41,13 @@ const PlatFormIcons = ({ platforms }: Props) => {
 
   return (
     <>
-      <HStack marginY={"8px"}>
+      <Wrap marginY={"8px"} spacing="10px">
         {platforms.map((platform) => (
-          <Icon as={iconMap[platform.slug]} color="gray.500"></Icon>
+          <WrapItem>
+            <Icon as={iconMap[platform.slug]} color="gray.500" />
+          </WrapItem>
         ))}
-      </HStack>
+      </Wrap>
     </>
   );
 };
