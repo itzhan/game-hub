@@ -2,7 +2,6 @@ import {
   ListItem,
   List,
   Img,
-  Text,
   HStack,
   SkeletonText,
   Button,
@@ -12,9 +11,10 @@ import getCropImgUrl from "../services/img-url";
 
 interface Props {
   setSelectGenre: (genre: Genre) => void;
+  selectGenre: Genre | null;
 }
 
-const GenreList = ({ setSelectGenre } : Props) => {
+const GenreList = ({ setSelectGenre, selectGenre } : Props) => {
   const { data, isLoding, error } = UseGenre();
   if (error) return null;
 
@@ -30,7 +30,7 @@ const GenreList = ({ setSelectGenre } : Props) => {
               boxSize="32px"
               borderRadius={"8px"}
             ></Img>
-            <Button onClick={() => setSelectGenre(genre)} variant='link' fontSize="large">{genre.name}</Button>
+            <Button fontWeight={selectGenre?.id === genre.id ? 'bold' : 'normal'} onClick={() => setSelectGenre(genre)} variant='link' fontSize="large">{genre.name}</Button>
           </HStack>
         </ListItem>
       ))}
