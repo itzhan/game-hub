@@ -3,12 +3,14 @@ import useGames from "../hook/useGames";
 import GameCrad from "./GameCrad";
 import GameCradSkeleton from "./GameCradSkeleton";
 import { Genre } from "../hook/useGenre";
+import { PlatForm } from "../hook/usePlatforms";
 interface Props {
   selectGenre: Genre | null;
+  selectPlatform: PlatForm | null;
 }
 
-const GameGrid = ({selectGenre}: Props) => {
-  const { error, data, isLoding } = useGames(selectGenre);
+const GameGrid = ({selectGenre, selectPlatform}: Props) => {
+  const { error, data, isLoding } = useGames(selectGenre, selectPlatform);
   const skeletons = [1, 2, 3, 4, 5, 6];
 
   return (
