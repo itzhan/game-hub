@@ -1,5 +1,5 @@
 const getCropImgUrl = (url: string) => {
-    if (!url) return '';
+    if (!url) return 'https://placehold.co/600x400?text=No\n Image';
 
     const target = 'media/'
     const index = url.indexOf(target) + target.length
