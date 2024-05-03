@@ -11,7 +11,7 @@ export interface Games {
     id: number;
     name: string;
     background_image: string;
-    platforms: {platform: Platforms}[],
+    parent_platforms: {platform: Platforms}[],
     metacritic: number,
   }
 

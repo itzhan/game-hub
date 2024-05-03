@@ -1,47 +1,38 @@
 import { Platforms } from "../hook/useGames";
-import { Icon, Text, HStack, Box, Wrap, WrapItem } from "@chakra-ui/react";
-import { FaWindows, FaXbox, FaApple, FaLinux, FaAndroid } from "react-icons/fa";
-import { MdPhoneIphone } from "react-icons/md";
-import { SiNintendo, SiVexxhost } from "react-icons/si";
-import { BsGlobe } from "react-icons/bs";
-import { LiaIoxhost } from "react-icons/lia";
+import { Icon, Wrap, WrapItem } from "@chakra-ui/react";
 import {
-  SiPlaystationvita,
-  SiPlaystation3,
-  SiPlaystation4,
-  SiPlaystation5,
-} from "react-icons/si";
-import { BsNintendoSwitch } from "react-icons/bs";
-import { RiXboxLine } from "react-icons/ri";
+  FaWindows,
+  FaXbox,
+  FaApple,
+  FaLinux,
+  FaAndroid,
+  FaPlaystation,
+} from "react-icons/fa";
+import { MdPhoneIphone } from "react-icons/md";
+import { SiNintendo } from "react-icons/si";
+import { BsGlobe } from "react-icons/bs";
 import { IconType } from "react-icons";
 
 interface Props {
   platforms: Platforms[];
 }
 
-const PlatFormIcons = ({ platforms }: Props) => {
+const PlatFormIcons = ({ platforms: platforms }: Props) => {
   const iconMap: { [key: string]: IconType } = {
     pc: FaWindows,
-    playstation3: SiPlaystation3,
-    playstation4: SiPlaystation4,
-    playstation5: SiPlaystation5,
-    "ps-vita": SiPlaystationvita,
-    "nintendo-switch": BsNintendoSwitch,
+    playstation: FaPlaystation,
     xbox: FaXbox,
-    "xbox-one": RiXboxLine,
-    "xbox-series-x": SiVexxhost,
-    xbox360: LiaIoxhost,
     nintendo: SiNintendo,
-    macos: FaApple,
+    mac: FaApple,
     linux: FaLinux,
     ios: MdPhoneIphone,
     android: FaAndroid,
-    globe: BsGlobe,
+    web: BsGlobe,
   };
 
   return (
     <>
-      <Wrap marginY={"8px"} spacing="10px" width={'170px'}>
+      <Wrap marginY={"8px"} spacing="10px">
         {platforms.map((platform) => (
           <WrapItem key={platform.id}>
             <Icon as={iconMap[platform.slug]} color="gray.500" />
