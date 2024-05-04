@@ -23,10 +23,10 @@ const GenreList = ({ setSelectGenre, selectGenre }: Props) => {
 
   return (
     <>
-      <Heading fontSize={'3xl'} mb={3}>Genre</Heading>
+      <Heading fontSize={'2xl'} mb={3} mt={4}>Genre</Heading>
       <List>
         {data.map((genre) => (
-          <ListItem key={genre.id} paddingY={"5px"}>
+          <ListItem key={genre.id} paddingY={"6px"}>
             <HStack>
               <Img
                 src={getCropImgUrl(genre.image_background)}
