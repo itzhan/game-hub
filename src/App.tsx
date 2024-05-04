@@ -7,6 +7,7 @@ import { Genre } from "./hook/useGenre";
 import PlatformSelector from "./component/PlatformSelector";
 import { PlatForm } from "./hook/usePlatforms";
 import SortSelector from "./component/SortSelector";
+import GameHeading from "./component/GameHeading";
 
 export interface GameQuery {
   genre: Genre | null;
@@ -30,7 +31,9 @@ function App() {
       }}
     >
       <GridItem area="nav">
-        <NavBar onSearch={(search) => setGameQuery({...gameQuery, search})}></NavBar>
+        <NavBar
+          onSearch={(search) => setGameQuery({ ...gameQuery, search })}
+        ></NavBar>
       </GridItem>
       <Show above="lg">
         <GridItem area="aside" paddingX={"8px"}>
@@ -41,22 +44,25 @@ function App() {
         </GridItem>
       </Show>
       <GridItem area="main">
-        <Flex paddingLeft={2} mb={5}>
-          <Box mr={5}>
-            <PlatformSelector
-              onSelectform={(platform) =>
-                setGameQuery({ ...gameQuery, platform })
+        <Box paddingLeft={2}>
+          <GameHeading gameQuery={gameQuery}/>
+          <Flex mb={5} mt={5}>
+            <Box mr={5}>
+              <PlatformSelector
+                onSelectform={(platform) =>
+                  setGameQuery({ ...gameQuery, platform })
+                }
+                selectPlatform={gameQuery.platform}
+              ></PlatformSelector>
+            </Box>
+            <SortSelector
+              selectOrder={gameQuery.sortOrder}
+              onSelectOrder={(sortOrder) =>
+                setGameQuery({ ...gameQuery, sortOrder })
               }
-              selectPlatform={gameQuery.platform}
-            ></PlatformSelector>
-          </Box>
-          <SortSelector
-            selectOrder={gameQuery.sortOrder}
-            onSelectOrder={(sortOrder) =>
-              setGameQuery({ ...gameQuery, sortOrder })
-            }
-          ></SortSelector>
-        </Flex>
+            ></SortSelector>
+          </Flex>
+        </Box>
         <GameGrid gameQuery={gameQuery}></GameGrid>
       </GridItem>
     </Grid>
