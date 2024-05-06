@@ -5,13 +5,13 @@ import GenreList from "./component/GenreList";
 import { useState } from "react";
 import { Genre } from "./hook/useGenre";
 import PlatformSelector from "./component/PlatformSelector";
-import { PlatForm } from "./hook/usePlatforms";
+import { Platform } from "./hook/usePlatforms";
 import SortSelector from "./component/SortSelector";
 import GameHeading from "./component/GameHeading";
 
 export interface GameQuery {
   genre: Genre | null;
-  platform: PlatForm | null;
+  platform: Platform | null;
   sortOrder: string;
   search: string;
 }
@@ -45,7 +45,7 @@ function App() {
       </Show>
       <GridItem area="main">
         <Box paddingLeft={2}>
-          <GameHeading gameQuery={gameQuery}/>
+          <GameHeading gameQuery={gameQuery} />
           <Flex mb={5} mt={5}>
             <Box mr={5}>
               <PlatformSelector

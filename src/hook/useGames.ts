@@ -1,19 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
 import { GameQuery } from "../App";
-import { FetchDatas } from "./useData";
+import { FetchDatas } from "../services/api-client";
 import apiClient from "../services/api-client";
-
-export interface Platforms {
-  id: number;
-  slug: string;
-  name: string;
-}
+import { Platform } from "./usePlatforms";
 
 export interface Games {
   id: number;
   name: string;
   background_image: string;
-  parent_platforms: { platform: Platforms }[];
+  parent_platforms: { platform: Platform }[];
   metacritic: number;
   rating_top: number;
 }
@@ -32,8 +27,8 @@ const UseGames = (gameQuery: GameQuery) =>
           },
         })
         .then((res) => res.data),
-        
-        staleTime: 1 * 60 * 60 * 1000 // 1h
+
+    staleTime: 1 * 60 * 60 * 1000, // 1h
   });
 //   UseDatas<Games>(
 //     '/games',
