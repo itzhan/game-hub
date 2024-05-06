@@ -1,4 +1,4 @@
-import { Box, Button, SimpleGrid, Spinner, Text } from "@chakra-ui/react";
+import { SimpleGrid, Spinner, Text } from "@chakra-ui/react";
 import GameCrad from "./GameCrad";
 import GameCradSkeleton from "./GameCradSkeleton";
 import InfiniteScroll from "react-infinite-scroll-component";
