@@ -25,7 +25,7 @@ const UseGames = (gameQuery: GameQuery) =>
           parent_platforms: gameQuery.platform?.id,
           ordering: gameQuery?.sortOrder,
           search: gameQuery?.search,
-          page: pageParam,
+          page: pageParam
         },
       }),
 
@@ -33,7 +33,7 @@ const UseGames = (gameQuery: GameQuery) =>
         return lastPage.next ? allPages.length + 1 : undefined;
       },
 
-    staleTime: 1 * 60 * 60 * 1000, // 1h
+    staleTime: 24 * 60 * 60 * 1000, // 24h
   });
   
 export default UseGames;
