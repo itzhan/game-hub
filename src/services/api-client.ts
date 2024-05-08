@@ -16,11 +16,15 @@ const apiInstance = axios.create({
 class ApiClient<T> {
   constructor(private endpoint: string) {}
 
-  getAll = (config: AxiosRequestConfig) => 
+  getAll = (config: AxiosRequestConfig) =>
     apiInstance
       .get<FetchDatas<T>>(this.endpoint, config)
       .then((res) => res.data);
-  ;
+
+  get = (id: string | number) => 
+    apiInstance
+        .get<T>(this.endpoint + '/' + id)
+        .then((res) => res.data);
 }
 
 export default ApiClient;
