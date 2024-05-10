@@ -1,4 +1,4 @@
-import { AspectRatio, Spinner, Text } from "@chakra-ui/react";
+import { Spinner, Text } from "@chakra-ui/react";
 import useGameTrailer from "../hook/useGameTrailers";
 
 interface Props {

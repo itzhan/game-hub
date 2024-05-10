@@ -1,8 +1,6 @@
 import { useParams } from "react-router-dom";
 import useGame from "../hook/useGame";
 import {
-  Box,
-  Grid,
   GridItem,
   Heading,
   SimpleGrid,
